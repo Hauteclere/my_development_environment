@@ -19,7 +19,7 @@ Everything I list is free at the time of writing, although of course it assumes 
   - [1.2 - Windows Terminal](#12---windows-terminal)
   - [1.3 - Git](#13---git)
   - [1.4 - GitHub](#14---github)
-  - [1.5 - VS Code](#15---vs-code)
+  - [1.5 - VS Code + Key Extensions](#15---vs-code--key-extensions)
     - [1.5.1 - Draw.io Integration Extension](#151---drawio-integration-extension)
     - [1.5.2 - Markdown All In One Extension](#152---markdown-all-in-one-extension)
     - [1.5.3 - Markdown Preview Github Styling Extension](#153---markdown-preview-github-styling-extension)
@@ -42,11 +42,10 @@ Everything I list is free at the time of writing, although of course it assumes 
     - [2.1.8 - Install VS Code Extensions](#218---install-vs-code-extensions)
     - [2.1.9 - Install UV](#219---install-uv)
     - [2.1.10 - Celebrate!](#2110---celebrate)
-  - [2.2 - Set up a project of some kind](#22---set-up-a-project-of-some-kind)
-    - [2.2.1 - I want to code a Python app](#221---i-want-to-code-a-python-app)
-    - [2.2.2 - I want to analyse some data](#222---i-want-to-analyse-some-data)
-    - [2.2.3 - I want to create a complex, repeatable pipeline](#223---i-want-to-create-a-complex-repeatable-pipeline)
-- [3 - An Example Workflow](#3---an-example-workflow)
+- [3 - Example Workflows](#3---example-workflows)
+  - [3.1 - I want to code a Python app](#31---i-want-to-code-a-python-app)
+  - [3.2 - I want to analyse some data](#32---i-want-to-analyse-some-data)
+  - [3.3 - I want to create a complex, repeatable pipeline](#33---i-want-to-create-a-complex-repeatable-pipeline)
 
 ---
 ---
@@ -140,7 +139,7 @@ The best thing about all these tools is that they're fully integrated with each 
 ---
 ---
 
-### 1.5 - [VS Code](https://code.visualstudio.com/)
+### 1.5 - [VS Code + Key Extensions](https://code.visualstudio.com/)
 
 > VS Code (Visual Studio Code) is a free, open-source code editor developed by Microsoft. It's designed to help you write and edit code efficiently with features like syntax highlighting, debugging, and extensions for various programming languages.
 
@@ -176,6 +175,10 @@ This makes sure that the preview of your markdown code that you see in VS Code l
 
 > [!NOTE]  
 > This note is an example of a GitHub-flavoured Markdown "alert"!
+
+---
+
+There are a few other must-have extensions, but they work a little more behind-the-scenes, so I haven't described them here. Look for them in the "Setup Instructions" section.
 
 ---
 ---
@@ -463,7 +466,7 @@ That's it, we're set up! How easy was that??
 ---
 ---
 
-### 2.2 - Set up a project of some kind
+## 3 - Example Workflows
 
 > [!WARNING]  
 > The below sections are a list of alternatives! 
@@ -472,19 +475,14 @@ That's it, we're set up! How easy was that??
 
 ---
 
-#### 2.2.1 - I want to code a Python app
+### 3.1 - I want to code a Python app
 
 ---
 
-#### 2.2.2 - I want to analyse some data
+### 3.2 - I want to analyse some data
 
 ---
 
-#### 2.2.3 - I want to create a complex, repeatable pipeline
+### 3.3 - I want to create a complex, repeatable pipeline
 
----
----
----
-
-## 3 - An Example Workflow
 
