@@ -382,8 +382,8 @@ Don't start until you have everything you need.
 
 1. In the search field in your taskbar, type `Ubuntu`
 2. When prompted, select a **User Name** and **Password** (This User Name and Password is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.)
-    > [!CAUTION]
-    > Please note that whilst entering the Password, nothing will appear on screen. This is called blind typing. You won't see what you are typing, this is completely normal. Type carefully!
+> [!CAUTION]  
+> Please note that whilst entering the Password, nothing will appear on screen. This is called blind typing. You won't see what you are typing, this is completely normal. Type carefully!
 3. Downloand and install updates by running the following command:
    ```
    sudo apt update && sudo apt upgrade
