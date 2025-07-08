@@ -19,7 +19,7 @@ Everything I list is free at the time of writing, although of course it assumes 
   - [1.2 - Windows Terminal](#12---windows-terminal)
   - [1.3 - Git](#13---git)
   - [1.4 - GitHub](#14---github)
-  - [1.5 - VS Code + Key Extensions](#15---vs-code--key-extensions)
+  - [1.5 - VS Code (+ Key Extensions)](#15---vs-code--key-extensions)
     - [1.5.1 - Draw.io Integration Extension](#151---drawio-integration-extension)
     - [1.5.2 - Markdown All In One Extension](#152---markdown-all-in-one-extension)
     - [1.5.3 - Markdown Preview Github Styling Extension](#153---markdown-preview-github-styling-extension)
@@ -31,18 +31,17 @@ Everything I list is free at the time of writing, although of course it assumes 
   - [1.8 - DuckDB](#18---duckdb)
   - [1.9 - DBT](#19---dbt)
 - [2 - Setup Instructions](#2---setup-instructions)
-  - [2.1 - Get your machine ready](#21---get-your-machine-ready)
-    - [2.1.1 - Get The Requirements Together](#211---get-the-requirements-together)
-    - [2.1.2 - Activate WSL2](#212---activate-wsl2)
-    - [2.1.3 - Set Up Your Ubuntu Installation](#213---set-up-your-ubuntu-installation)
-    - [2.1.4 - Install Windows Terminal](#214---install-windows-terminal)
-    - [2.1.5 - Set WSL2 Ubuntu as your default shell](#215---set-wsl2-ubuntu-as-your-default-shell)
-    - [2.1.6 - Install Git (Twice)](#216---install-git-twice)
-    - [2.1.7 - Configure Git](#217---configure-git)
-    - [2.1.8 - Install VS Code](#218---install-vs-code)
-    - [2.1.9 - Install VS Code Extensions](#219---install-vs-code-extensions)
-    - [2.1.10 - Install UV](#2110---install-uv)
-    - [2.1.11 - Celebrate!](#2111---celebrate)
+  - [2.1 - Get The Requirements Together](#21---get-the-requirements-together)
+  - [2.2 - Activate WSL2](#22---activate-wsl2)
+  - [2.3 - Set Up Your Ubuntu Installation](#23---set-up-your-ubuntu-installation)
+  - [2.4 - Install Windows Terminal](#24---install-windows-terminal)
+  - [2.5 - Set WSL2 Ubuntu as your default shell](#25---set-wsl2-ubuntu-as-your-default-shell)
+  - [2.6 - Install Git (Twice)](#26---install-git-twice)
+  - [2.7 - Configure Git](#27---configure-git)
+  - [2.8 - Install VS Code](#28---install-vs-code)
+  - [2.9 - Install VS Code Extensions](#29---install-vs-code-extensions)
+  - [2.10 - Install UV](#210---install-uv)
+  - [2.11 - Celebrate!](#211---celebrate)
 - [3 - Example Workflows](#3---example-workflows)
   - [3.1 - I want to code a Python app](#31---i-want-to-code-a-python-app)
   - [3.2 - I want to analyse some data](#32---i-want-to-analyse-some-data)
@@ -140,7 +139,7 @@ The best thing about all these tools is that they're fully integrated with each 
 ---
 ---
 
-### 1.5 - [VS Code + Key Extensions](https://code.visualstudio.com/)
+### 1.5 - [VS Code](https://code.visualstudio.com/) (+ Key Extensions)
 
 > VS Code (Visual Studio Code) is a free, open-source code editor developed by Microsoft. It's designed to help you write and edit code efficiently with features like syntax highlighting, debugging, and extensions for various programming languages.
 
@@ -342,19 +341,12 @@ This tool lets you define steps in your pipeline as SQL queries (or Python code 
  
 
 ## 2 - Setup Instructions
-This section is aimed at getting you set up with the whole environment listed above in as few steps as possible. There are two sections below:
-- "Get your machine ready" describes the initial setup process for your machine. You'll only need to do this one time, unless you buy a new laptop.
-- "Set up a project of some kind" gives you a list of options for setting up different kinds of project. Whenever you're starting a new project you'll be able to choose one of these procedures to lay a foundation that you can build on.
+This section is aimed at getting you set up with the whole environment listed above in as few steps as possible. 
 
 ---
 ---
 
-### 2.1 - Get your machine ready
-This section outlines how you should set up your machine to get it ready for use as a data analysis workstation. You should follow every instruction below in order. If you run into trouble, try searching online for troubleshooting advice, or interrogating an AI tool like Chat GPT for answers.
-
----
-
-#### 2.1.1 - Get The Requirements Together
+### 2.1 - Get The Requirements Together
 
 Don't start until you have everything you need.
 
@@ -367,7 +359,7 @@ Don't start until you have everything you need.
 
 ---
 
-#### 2.1.2 - Activate WSL2
+### 2.2 - Activate WSL2
 
 1. In the search field in your taskbar, type `PowerShell`.
 2. Right click on `Windows PowerShell` and select `Run as administrator`.
@@ -379,7 +371,7 @@ Don't start until you have everything you need.
 
 ---
 
-#### 2.1.3 - Set Up Your Ubuntu Installation
+### 2.3 - Set Up Your Ubuntu Installation
 
 1. In the search field in your taskbar, type `Ubuntu`
 2. When prompted, select a **User Name** and **Password** (This User Name and Password is specific to each separate Linux distribution that you install and has no bearing on your Windows user name.)
@@ -393,7 +385,7 @@ Don't start until you have everything you need.
 
 ---
 
-#### 2.1.4 - Install Windows Terminal
+### 2.4 - Install Windows Terminal
 
 1. Open the Microsoft Store.
 2. Search for `Windows Terminal`.
@@ -403,7 +395,7 @@ I recommend pinning Windows Terminal to your taskbar.
 
 ---
 
-#### 2.1.5 - Set WSL2 Ubuntu as your default shell
+### 2.5 - Set WSL2 Ubuntu as your default shell
 
 This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" shell is selected by default.
 
@@ -417,7 +409,7 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
 
 ---
 
-#### 2.1.6 - Install Git (Twice)
+### 2.6 - Install Git (Twice)
 
 1. Install in WSL:
   In the Bash shell in Windows Terminal, run the following command:
@@ -432,7 +424,7 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
 
 ---
 
-#### 2.1.7 - Configure Git
+### 2.7 - Configure Git
 
 1. Set default main branch name:
   ```bash
@@ -459,7 +451,7 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
   ```
 ---
 
-#### 2.1.8 - Install VS Code
+### 2.8 - Install VS Code
 
 1. Head to https://code.visualstudio.com/ and click `Download for Windows`
 2. Find the downloaded `.exe` file, right click it, and select `Run as administrator`
@@ -469,7 +461,7 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
 
 ---
 
-#### 2.1.9 - Install VS Code Extensions
+### 2.9 - Install VS Code Extensions
 
 1. Open VS Code
 2. Click the "Extensions" interface in the panel on the left
@@ -487,7 +479,7 @@ There are some others you might also enjoy, but they're not stricly necessary. I
 
 ---
 
-#### 2.1.10 - Install UV
+### 2.10 - Install UV
 
 1. In the Bash shell in Windows Terminal, run the following command:
     ```
@@ -496,7 +488,7 @@ There are some others you might also enjoy, but they're not stricly necessary. I
 
 ---
 
-#### 2.1.11 - Celebrate!
+### 2.11 - Celebrate!
 That's it, we're set up! How easy was that??
 
 ---
