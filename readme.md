@@ -1,8 +1,5 @@
 <h1>My Development Environment</h1>
 
-> [!CAUTION]  
-> Still need to finish the "configure git" instructions...
-
 Below is a description of the workspace setup and tools that I use on a daily basis and what a normal workflow looks like for me. Feel free to read through and cherry-pick the bits that suit you! 
 
 Everything I list is free at the time of writing, although of course it assumes that you have already bought a reasonably powerful laptop.
@@ -40,7 +37,7 @@ Everything I list is free at the time of writing, although of course it assumes 
     - [2.1.3 - Set Up Your Ubuntu Installation](#213---set-up-your-ubuntu-installation)
     - [2.1.4 - Install Windows Terminal](#214---install-windows-terminal)
     - [2.1.5 - Set WSL2 Ubuntu as your default shell](#215---set-wsl2-ubuntu-as-your-default-shell)
-    - [2.1.6 - Install Git](#216---install-git)
+    - [2.1.6 - Install Git (Twice)](#216---install-git-twice)
     - [2.1.7 - Configure Git](#217---configure-git)
     - [2.1.8 - Install VS Code](#218---install-vs-code)
     - [2.1.9 - Install VS Code Extensions](#219---install-vs-code-extensions)
@@ -455,13 +452,18 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
 
 ---
 
-#### 2.1.6 - Install Git
+#### 2.1.6 - Install Git (Twice)
 
-1. In the Bash shell in Windows Terminal, run the following command:
+1. Install in WSL:
+  In the Bash shell in Windows Terminal, run the following command:
    ```
    sudo apt update && sudo apt install git
    ```
    (You may be prompted to enter your newly-set password.)
+2. [Install Git for Windows too.](https://git-scm.com/downloads/win)
+
+> [!NOTE]  
+> Yes, we are installing Git twice here. It's silly, but we need both installations. The installation on the base Windows OS gives us access to the Git Credential Manager, which is so useful that it's practically necessary. The installation on WSL gives us the version we actually use.
 
 ---
 
@@ -471,7 +473,25 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
   ```bash
   git config --global init.defaultBranch main
   ```
-2. 
+2. Set your username:
+  ```bash
+  git config --global user.name "YOUR NAME HERE"
+  ```
+3. Set your email:
+  ```bash
+  git config --global user.email "YOUR@EMAIL.HERE"
+  ```
+4. Set the Windows Git Credential Manager as your chosen credential manager. 
+  > [!TIP]  
+  > You might have to do some work here to find where GCM lives on your machine. For me it is at `C:\Users\Lavers\AppData\Local\Programs\Git\mingw64\bin\git-credential-manager.exe`.  
+  > 
+  > You then need to convert that path to unix format from the perspective of your WSL installation. My example becomes: `/mnt/c/Users/lavers/AppData/Local/Programs/Git/mingw64/bin/git-credential-manager.exe`
+  >
+  > If in doubt, use the Bash shell to root around in your `/mnt/c/Users/` directory using the `cd` and `ls` commands to try and find what you need!
+
+  ```bash
+  git config --global credential.helper="PATH\TO\GCM\HERE"
+  ```
 ---
 
 #### 2.1.8 - Install VS Code
