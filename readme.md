@@ -1,6 +1,9 @@
-<h1>My Workflow In VS Code</h1>
+<h1>My Development Environment</h1>
 
-This document has the word "Workflow" in the title, but it includes a little more than that. Below is a description of the workspace setup and tools that I use on a daily basis and what a normal workflow looks like for me. Feel free to read through and cherry-pick the bits that suit you! 
+> [!CAUTION]  
+> Still need to finish the "configure git" instructions...
+
+Below is a description of the workspace setup and tools that I use on a daily basis and what a normal workflow looks like for me. Feel free to read through and cherry-pick the bits that suit you! 
 
 Everything I list is free at the time of writing, although of course it assumes that you have already bought a reasonably powerful laptop.
 
@@ -38,14 +41,50 @@ Everything I list is free at the time of writing, although of course it assumes 
     - [2.1.4 - Install Windows Terminal](#214---install-windows-terminal)
     - [2.1.5 - Set WSL2 Ubuntu as your default shell](#215---set-wsl2-ubuntu-as-your-default-shell)
     - [2.1.6 - Install Git](#216---install-git)
-    - [2.1.7 - Install VS Code](#217---install-vs-code)
-    - [2.1.8 - Install VS Code Extensions](#218---install-vs-code-extensions)
-    - [2.1.9 - Install UV](#219---install-uv)
-    - [2.1.10 - Celebrate!](#2110---celebrate)
+    - [2.1.7 - Configure Git](#217---configure-git)
+    - [2.1.8 - Install VS Code](#218---install-vs-code)
+    - [2.1.9 - Install VS Code Extensions](#219---install-vs-code-extensions)
+    - [2.1.10 - Install UV](#2110---install-uv)
+    - [2.1.11 - Celebrate!](#2111---celebrate)
 - [3 - Example Workflows](#3---example-workflows)
   - [3.1 - I want to code a Python app](#31---i-want-to-code-a-python-app)
+    - [3.1.1 - Open Shell](#311---open-shell)
+    - [3.1.2 - Navigate To Projects Folder](#312---navigate-to-projects-folder)
+    - [3.1.3 - Initialise A New Project With UV](#313---initialise-a-new-project-with-uv)
+    - [3.1.4 - Change Directory Into Your New Project](#314---change-directory-into-your-new-project)
+    - [3.1.5 - Add A `.venv`](#315---add-a-venv)
+    - [3.1.6 - Add Dependencies As Required](#316---add-dependencies-as-required)
+    - [3.1.7 - Activate Your `.venv`](#317---activate-your-venv)
+    - [3.1.8 - Open VS Code](#318---open-vs-code)
+    - [3.1.9 - Get Coding!](#319---get-coding)
   - [3.2 - I want to analyse some data](#32---i-want-to-analyse-some-data)
+    - [3.2.1 - Open Shell](#321---open-shell)
+    - [3.2.2 - Navigate To Projects Folder](#322---navigate-to-projects-folder)
+    - [3.2.3 - Initialise A New Project With UV](#323---initialise-a-new-project-with-uv)
+    - [3.2.4 - Change Directory Into Your New Project](#324---change-directory-into-your-new-project)
+    - [3.2.5 - Add A `.venv`](#325---add-a-venv)
+    - [3.2.6 - Add Dependencies As Required](#326---add-dependencies-as-required)
+    - [3.2.7 - Create A Folder For Data](#327---create-a-folder-for-data)
+    - [3.2.8 - Open Project Directory in VS Code](#328---open-project-directory-in-vs-code)
+    - [3.2.9 - Amend `.gitignore`](#329---amend-gitignore)
+    - [3.2.10 - Create An `.ipynb` File And Get Coding!](#3210---create-an-ipynb-file-and-get-coding)
   - [3.3 - I want to create a complex, repeatable pipeline](#33---i-want-to-create-a-complex-repeatable-pipeline)
+    - [3.3.1 - Open Shell](#331---open-shell)
+    - [3.3.2 - Navigate To Projects Folder](#332---navigate-to-projects-folder)
+    - [3.3.3 - Initialise A New Project With UV](#333---initialise-a-new-project-with-uv)
+    - [3.3.4 - Change Directory Into Your New Project](#334---change-directory-into-your-new-project)
+    - [3.3.5 - Add A `.venv`](#335---add-a-venv)
+    - [3.3.6 - Modify the Activate Script](#336---modify-the-activate-script)
+    - [3.3.7 - Create Project Structure](#337---create-project-structure)
+    - [3.3.8 - Install Dependencies](#338---install-dependencies)
+    - [3.3.9 - Activate the environment:](#339---activate-the-environment)
+    - [3.3.10 - Open Repo in VS Code](#3310---open-repo-in-vs-code)
+    - [3.3.11 - Amend `.gitignore`](#3311---amend-gitignore)
+    - [3.3.12 - Create `.dbt/profiles.yml` file](#3312---create-dbtprofilesyml-file)
+    - [3.3.13 - Create `dbt_project.yml`](#3313---create-dbt_projectyml)
+    - [3.3.14 - Create A Notebook To Run DBT](#3314---create-a-notebook-to-run-dbt)
+    - [3.3.15 - Write Your Models!](#3315---write-your-models)
+    - [3.3.16 - Run That Notebook!](#3316---run-that-notebook)
 
 ---
 ---
@@ -426,14 +465,26 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
 
 ---
 
-#### 2.1.7 - Install VS Code
+#### 2.1.7 - Configure Git
+
+1. Set default main branch name:
+  ```bash
+  git config --global init.defaultBranch main
+  ```
+2. 
+---
+
+#### 2.1.8 - Install VS Code
 
 1. Head to https://code.visualstudio.com/ and click `Download for Windows`
 2. Find the downloaded `.exe` file, right click it, and select `Run as administrator`
 
+> [!IMPORTANT]  
+> When prompted to `Select Additional Tasks` during installation, be sure to check the `Add to PATH` option so you can easily open a folder in WSL using the `code` command.
+
 ---
 
-#### 2.1.8 - Install VS Code Extensions
+#### 2.1.9 - Install VS Code Extensions
 
 1. Open VS Code
 2. Click the "Extensions" interface in the panel on the left
@@ -451,7 +502,7 @@ There are some others you might also enjoy, but they're not stricly necessary. I
 
 ---
 
-#### 2.1.9 - Install UV
+#### 2.1.10 - Install UV
 
 1. In the Bash shell in Windows Terminal, run the following command:
     ```
@@ -460,7 +511,7 @@ There are some others you might also enjoy, but they're not stricly necessary. I
 
 ---
 
-#### 2.1.10 - Celebrate!
+#### 2.1.11 - Celebrate!
 That's it, we're set up! How easy was that??
 
 ---
@@ -474,15 +525,354 @@ That's it, we're set up! How easy was that??
 > **Don't apply every section below every time you start work.** Instead, pick the description that suits your needs best, and just follow those steps. 
 
 ---
+---
 
 ### 3.1 - I want to code a Python app
+This is the simplest workflow, although for most apps it will of course get a bit more complicated as more dependencies and tools are introduced.
 
 ---
 
-### 3.2 - I want to analyse some data
+#### 3.1.1 - Open Shell
+Open Ubuntu's Bash shell in Windows Terminal
 
+---
+
+#### 3.1.2 - Navigate To Projects Folder
+Navigate to the folder where you keep your coding projects. Example command: 
+```bash
+cd ~/projects
+  ```
+
+---
+
+#### 3.1.3 - Initialise A New Project With UV
+```bash
+uv init my_project 
+```
+
+---
+
+
+#### 3.1.4 - Change Directory Into Your New Project
+```bash
+cd my_project
+```
+
+---
+
+#### 3.1.5 - Add A `.venv`
+This virtual environment will allow you to install dependencies locally without having them spill out through your whole computer.
+
+```bash
+uv venv .venv
+```
+
+---
+
+#### 3.1.6 - Add Dependencies As Required
+You can add anything from the Pypi register of course!
+
+```bash
+uv add cowsay
+```
+
+---
+
+#### 3.1.7 - Activate Your `.venv`
+```bash
+source .venv/bin/activate
+```
+
+> [!IMPORTANT]  
+> You'll have to do this each time you want to run your app!
+
+---
+
+#### 3.1.8 - Open VS Code
+```bash
+code .
+```
+
+---
+
+#### 3.1.9 - Get Coding!
+Well, off you go.
+
+---
+---
+
+
+### 3.2 - I want to analyse some data
+For this, we'll use DuckDB and Jupyter Notebooks.
+
+---
+
+#### 3.2.1 - Open Shell
+Open Ubuntu's Bash shell in Windows Terminal
+
+---
+
+#### 3.2.2 - Navigate To Projects Folder
+Navigate to the folder where you keep your coding projects. Example command: 
+```bash
+cd ~/projects
+  ```
+
+---
+
+#### 3.2.3 - Initialise A New Project With UV
+```bash
+uv init my_project 
+```
+
+---
+
+
+#### 3.2.4 - Change Directory Into Your New Project
+```bash
+cd my_project
+```
+
+---
+
+#### 3.2.5 - Add A `.venv`
+This virtual environment will allow you to install dependencies locally without having them spill out through your whole computer.
+
+```bash
+uv venv .venv
+```
+
+---
+
+#### 3.2.6 - Add Dependencies As Required
+The dependencies matter here. You'll probably need to include some of your own (Numpy? Pandas? Etc?), but add a minimum you want the following:
+
+```bash
+uv add duckdb ipykernel
+```
+
+---
+
+#### 3.2.7 - Create A Folder For Data
+
+> [!IMPORTANT]
+> You want somewhere to put your source and output files that won't get committed to GitHub!!
+
+```bash
+mkdir data
+```
+
+---
+
+#### 3.2.8 - Open Project Directory in VS Code
+
+```bash
+code .
+```
+
+---
+
+#### 3.2.9 - Amend `.gitignore`
+We need to add some stuff to our `.gitignore` file
+
+```diff
+# .gitignore
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
++ # Our stuff
++ .venv/
++ dbt_packages/
++ dbt_modules/
++ logs/
++ *.duckdb
++ .ipynb_checkpoints/
++ *.duckdb.wal
++ data/
+```
+
+---
+
+#### 3.2.10 - Create An `.ipynb` File And Get Coding!
+The `.ipynb` format is the Jupyter Notebook file format. It's super handy. Don't forget - data files go in your `data/` directory. [There's some example code here](./examples/duckdb_example/).
+
+---
 ---
 
 ### 3.3 - I want to create a complex, repeatable pipeline
+This one is for when you want to make something that keeps working into the future and can be easily refactored when you need to upgrade it.
+
+---
+
+#### 3.3.1 - Open Shell
+Open Ubuntu's Bash shell in Windows Terminal
+
+---
+
+#### 3.3.2 - Navigate To Projects Folder
+Navigate to the folder where you keep your coding projects. Example command: 
+```bash
+cd ~/projects
+  ```
+
+---
+
+#### 3.3.3 - Initialise A New Project With UV
+```bash
+uv init my_project 
+```
+
+---
 
 
+#### 3.3.4 - Change Directory Into Your New Project
+```bash
+cd my_project
+```
+
+---
+
+#### 3.3.5 - Add A `.venv`
+This virtual environment will allow you to install dependencies locally without having them spill out through your whole computer.
+
+```bash
+uv venv .venv
+```
+
+---
+
+#### 3.3.6 - Modify the Activate Script
+
+```bash
+echo 'export DBT_PROFILES_DIR="$VIRTUAL_ENV/.dbt"' >> .venv/bin/activate
+```
+
+This ensures DBT uses the local profile when the venv is active.
+
+---
+
+#### 3.3.7 - Create Project Structure
+
+```bash
+mkdir -p {models,notebooks,.dbt}
+```
+
+---
+
+#### 3.3.8 - Install Dependencies
+
+```bash
+uv add dbt-duckdb ipykernel ipython
+```
+
+---
+
+#### 3.3.9 - Activate the environment:
+```bash
+source .venv/bin/activate
+```
+
+---
+
+#### 3.3.10 - Open Repo in VS Code
+```bash
+code .
+```
+
+---
+
+#### 3.3.11 - Amend `.gitignore`
+We need to add some stuff to our `.gitignore` file
+
+```diff
+# .gitignore
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
++ # Our stuff
++ .venv/
++ dbt_packages/
++ dbt_modules/
++ logs/
++ *.duckdb
++ .ipynb_checkpoints/
++ *.duckdb.wal
++ data/
+```
+
+---
+
+#### 3.3.12 - Create `.dbt/profiles.yml` file
+
+Use the VS Code file tree interface to create the following file in the `.dbt` directory called `profiles.yml`:
+
+```yaml
+my_duckdb_project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: my_database.duckdb
+```
+
+---
+
+#### 3.3.13 - Create `dbt_project.yml`
+
+Create this file in the root project directory.
+
+> [!WARNING]  
+> Don't create it in the `.dbt` directory! It needs to go next to your `.gitignore` file!
+
+```yaml
+name: my_duckdb_project
+version: '1.0'
+config-version: 2
+
+profile: my_duckdb_project
+
+model-paths: ["models"]
+```
+
+---
+
+#### 3.3.14 - Create A Notebook To Run DBT
+
+> [!NOTE]  
+> You can use a bash script instead if you want. 
+
+Create `notebooks/run_dbt_pipeline.ipynb` with the following content:
+
+```python
+from dbt.cli.main import dbtRunner
+
+runner = dbtRunner()
+result = runner.invoke(["run", "--project-dir", ".", "--profiles-dir", ".dbt"])
+
+for r in result.result:
+    print(f"{r.node.name}: {r.status}")
+```
+
+---
+
+#### 3.3.15 - Write Your Models!
+
+This is most of the work. Each model is a SQL query in its own `.sql` file, that defines a new table in your database. See the example repo for a glance at what this might look like.
+
+---
+
+#### 3.3.16 - Run That Notebook!
+
+That's it, you're done!
