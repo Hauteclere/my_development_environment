@@ -149,9 +149,6 @@ This is your workhorse. I write all of my code and almost all of my documents in
 
 VS Code also has a built-in terminal where you can run shell commands, but I find this clunky to set up and a bit underwhelming. I use [Windows Terminal](#windows-terminal) to run my shell - a separate program that has a much nicer interface.
 
-> [!CAUTION]  
-> I've listed some extensions for VS Code that I use below. Please note that for many of these, you'll need to first install them in VS Code, and then select `Install in WSL` in order to get the functionality working.
-
 ---
 
 #### 1.5.1 - [Draw.io Integration Extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
@@ -478,7 +475,10 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
    - `Markdown Preview Github Styling` (Matt Bierner)
    - `Markdown Table` (Takumi Ishii)
 
-There are some others you might also enjoy, but they're not stricly necessary. I recommend checking out `Live Server` for writing HTML, `Pylance` for code interpretation, and `Git Graph` for viewing your Git history. 
+There are some others you might also enjoy, but they're not strictly necessary. I recommend checking out `Live Server` for writing HTML, `Pylance` for code interpretation, and `Git Graph` for viewing your Git history. 
+
+> [!CAUTION]  
+> For some of these extensions, you'll need to install them, and then select `Install in WSL` in order to get the functionality working.
 
 ---
 
