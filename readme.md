@@ -447,7 +447,7 @@ This should make is to that whenever you open Windows Terminal, Ubuntu's "Bash" 
   > If in doubt, use the Bash shell to root around in your `/mnt/c/Users/` directory using the `cd` and `ls` commands to try and find what you need!
 
   ```bash
-  git config --global credential.helper="PATH\TO\GCM\HERE"
+  git config --global credential.helper "PATH\TO\GCM\HERE"
   ```
 ---
 
