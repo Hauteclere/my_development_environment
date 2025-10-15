@@ -169,7 +169,7 @@ With this extension you can add tables of contents to your markdown files, etc, 
 
 ---
 
-#### 1.5.3 - [Markdown Preview Github Styling Extension](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
+#### 1.5.3 - [Markdown Preview Github Styling Extension](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview)
 
 This makes sure that the preview of your markdown code that you see in VS Code looks identical to what readers will see when they access the document on GitHub. This is important because there are a couple of very useful features that are unique to GitHub-flavoured Markdown, including "alerts", and Mermaid diagram rendering.
 
@@ -179,6 +179,13 @@ This makes sure that the preview of your markdown code that you see in VS Code l
 ---
 
 There are a few other must-have extensions, but they work a little more behind-the-scenes, so I haven't described them here. Look for them in the "Setup Instructions" section.
+
+---
+
+#### 1.5.4 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+
+This lets you create diagrams-as-code using Mermaid formatting. We'll talk about that some more below.
+
 
 ---
 ---
