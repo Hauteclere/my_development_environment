@@ -149,6 +149,9 @@ This is your workhorse. I write all of my code and almost all of my documents in
 
 VS Code also has a built-in terminal where you can run shell commands, but I find this clunky to set up and a bit underwhelming. I use [Windows Terminal](#windows-terminal) to run my shell - a separate program that has a much nicer interface.
 
+> [!CAUTION]  
+> I've listed some extensions for VS Code that I use below. Please note that for many of these, you'll need to first install them in VS Code, and then select `Install in WSL` in order to get the functionality working.
+
 ---
 
 #### 1.5.1 - [Draw.io Integration Extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
@@ -179,13 +182,6 @@ This makes sure that the preview of your markdown code that you see in VS Code l
 ---
 
 There are a few other must-have extensions, but they work a little more behind-the-scenes, so I haven't described them here. Look for them in the "Setup Instructions" section.
-
----
-
-#### 1.5.4 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
-
-This lets you create diagrams-as-code using Mermaid formatting. We'll talk about that some more below.
-
 
 ---
 ---
