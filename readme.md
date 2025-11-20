@@ -648,7 +648,7 @@ This one is for when you want to make something that keeps working into the futu
 6. Modify the Activate Script
 
     ```bash
-    echo 'export DBT_PROFILES_DIR="$VIRTUAL_ENV/.dbt"' >> .venv/bin/activate
+    echo 'export DBT_PROFILES_DIR="$VIRTUAL_ENV/../.dbt"' >> .venv/bin/activate
     ```
 
     > This ensures DBT uses the local profile when the venv is active.
