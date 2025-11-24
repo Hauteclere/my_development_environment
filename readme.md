@@ -46,6 +46,8 @@ Everything I list is free at the time of writing, although of course it assumes 
   - [3.1 - I want to code a Python app](#31---i-want-to-code-a-python-app)
   - [3.2 - I want to analyse some data](#32---i-want-to-analyse-some-data)
   - [3.3 - I want to create a complex, repeatable pipeline](#33---i-want-to-create-a-complex-repeatable-pipeline)
+    - [In WSL](#in-wsl)
+    - [In Windows](#in-windows)
 
 ---
 ---
@@ -624,6 +626,8 @@ For this, we'll use DuckDB and Jupyter Notebooks.
 
 ### 3.3 - I want to create a complex, repeatable pipeline
 This one is for when you want to make something that keeps working into the future and can be easily refactored when you need to upgrade it.
+
+#### In WSL
 1. Open Shell
     > Open Ubuntu's Bash shell in Windows Terminal
 2. Navigate To Projects Folder
@@ -739,3 +743,186 @@ This one is for when you want to make something that keeps working into the futu
 16. Run That Notebook!
 
     > That's it, you're done!
+
+#### In Windows
+1. Ensure you have the the correct Python version pinned for UV (so that it doesn't use the wrong version for your virtual environments):
+    ```ps
+    uv python pin 3.12 --global
+    ```
+2. Create a UV project to work in:
+    ```ps
+    cd ~
+    ```
+    ```ps
+    uv init <your_project_name_here>
+    ```
+    ```ps
+    cd <your_project_name_here>
+    ```
+3. Add `dbt-duckdb` as a dependency:
+    ```ps
+    uv add dbt-duckdb
+    ```
+4. Initialise your DBT project:
+    ```ps
+    uv run dbt init <your_project_name_here>
+    ```
+5. Create a local folder for your DBT config files:
+    ```ps
+    md .dbt
+    ```
+6. Open VS Code:
+    ```ps
+    code .
+    ```
+7. Create a `.env` file to set the location of yiour config files with an environment variable...  
+    
+    `./.env`:
+
+    ```diff
+    DBT_PROFILES_DIR="./.dbt"
+    ```
+8. Add `*.db` files to your `.gitignore` so that you don't accidentally commit them:
+    
+    `./.gitignore`
+    
+    ```diff
+    # Python-generated files
+    __pycache__/
+    *.py[oc]
+    build/
+    dist/
+    wheels/
+    *.egg-info
+
+    # Virtual environments
+    .venv
+    + *.db
+    ```
+9.  Create a `profiles.yml` in your DBT config folder...
+
+    `./.dbt/profiles.yml`:
+
+    ```yml
+    <your_project_name_here>:
+      target: dev
+      outputs:
+        dev:
+          type: duckdb
+          path: "{{ env_var('DBT_PROJECT_DIR', '.') }}/duckdb.db"
+    ```
+10. Create a `dbt_project.yml`...
+    
+    `./dbt_project.yml`:
+
+    ```yml
+    name: test
+    version: '1.0'
+    config-version: 2
+
+    profile: test
+
+    model-paths: ["models"]
+    ```
+11. Create a `prime_database.py` script...
+    
+    `./prime_database.py`:
+
+    ```py
+    def prime():
+        import duckdb
+        with duckdb.connect("duckdb.db") as con:
+
+            # -------
+            # Example pre-run activity.
+            print("LOADING EXAMPLE DATA...")
+            con.sql("DROP TABLE IF EXISTS test")
+            con.sql("CREATE TABLE test (i INTEGER)")
+            con.sql("INSERT INTO test VALUES (42), (69), (420)")
+            # -------
+
+    if __name__ == "__main__":
+        prime()
+    ```
+12. Prime your database:
+    ```ps
+    uv run prime_database.py
+    ```
+
+    > [!NOTE]  
+    > You should now see a `duckdb.db` file in your project repo!
+13. Create a `./models/` directory.
+    
+    ```ps
+    md models
+    ```
+
+14. Create a `schema.yml` in your models directory, and point it to your primed database table as a source...
+
+    `./models/schema.yml`:
+
+    ```yml
+    version: 2
+
+    sources:
+    - name: test_source
+        schema: main
+        tables:
+        - name: test
+    ```
+15. Create a couple of models; one to pull from the source you just defined, and another to pull from the first one...
+    
+    `./models/model1.sql`:
+
+    ```sql
+    select 
+        * 
+    from {{ source('test_source', 'test') }}
+    ```
+    ---
+
+    `./models/model2.sql`:
+    
+    ```sql
+    select 
+        * 
+    from {{ ref('example_model1') }}
+    ```
+
+16. Run your pipeline:
+    
+    ```ps
+    uv run --env-file .env dbt run
+    ```
+
+17. Create a `post_run.py` script to get the results of your pipeline...
+
+    `./post_run.py`:
+
+    ```py
+    def post_run():
+        import duckdb
+        with duckdb.connect("duckdb.db") as con:
+            # --------
+            # Example post-run activity
+            con.sql("SELECT * FROM example_model2;").show()
+            # --------
+
+    if __name__ == "__main__":
+        post_run()
+    ```
+18. Run your post-run script:
+    
+    ```ps
+    uv run post_run.py
+    ```
+
+19. Generate your documentation:
+    ```ps
+    uv run --env-file .env dbt docs generate
+    ```
+
+20. Serve your docs:
+    ```ps
+    uv run --env-file .env dbt docs serve
+    ```
